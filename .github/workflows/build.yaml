@@ -5,18 +5,16 @@ on:
       - main
 jobs:
   build:
-    name: build
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
       - uses: docker/build-push-action@v1
         name: Build & push Docker image
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-          dockerfile: docker/k8s/Dockerfile
+          password: ${{ secrets.DOCKER_PASSWORD }}
           repository: ${{ secrets.DOCKERHUB_USERNAME }}/digipet
           tag_with_sha: true
           tags: latest
