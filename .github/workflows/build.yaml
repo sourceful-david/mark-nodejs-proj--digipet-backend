@@ -17,7 +17,6 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           dockerfile: docker/k8s/Dockerfile
-          registry: gcr.io
           repository: ${{ secrets.DOCKERHUB_USERNAME }}/digipet
           tag_with_sha: true
           tags: latest
